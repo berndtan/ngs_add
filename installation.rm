@@ -1,0 +1,24 @@
+# Commantline actions to set-up Ruby on Rails 3 App using MySql
+# author: Annerose Berndt
+# date: 7/29/2012
+
+# To create a new Rails project using Git as the source control
+
+	mkdir my_app
+	cd my_app
+	git init
+	rails new . --git --database=mysql --skip-test-unit
+
+# configure database.yml 
+# configure Gemfile
+
+# Install gem
+
+	bundle install
+
+# Install rspec
+	rails generate rspec:install
+
+# configure .gitignore
+
+	add .DS_Store
