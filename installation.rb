@@ -434,7 +434,71 @@
 	# test static_pages_spec.rb
 	bundle exec rspec spec/ #good
 
+	git status
+	git commit -am "Make an Application Helper"
+
 # Filling in the layout
+	git checkout -b filling-in-layout
+	# in application.html.erb
+	# in home.html.erb
+	# integrate bootstrap
+		# make costum.css.scss
+	# make partials
+		# _shim
+		# _header
+		# _footer
+	# in static_pages_spec.rb
+	# in routes.erb
+	NgsApp::Application.routes.draw do
+		root              :to => 'static_pages#home'
+
+		match '/help',    :to => 'static_pages#help'
+		match '/about',   :to => 'static_pages#about'
+		match '/contact', :to => 'static_pages#contact'
+
+	# make utilities.rb
+	# in application_helper.rb
+
+	# add Sign up page
+		rails generate controller Users new --no-test-framework
+		rails generate integration_test user_pages
+
+		# in routes.erb
+		NgsApp::Application.routes.draw do
+			root              :to => 'static_pages#home'
+
+			match '/signup',  :to => 'users#new'
+
+			match '/help',    :to => 'static_pages#help'
+			match '/about',   :to => 'static_pages#about'
+			match '/contact', :to => 'static_pages#contact'
+
+		# in user_pages_spec.rb
+
+		# in new.html.erb
+
+		mkdir spec/helpers/
+		ls spec/helpers/
+		touch spec/helpers/application_helper_spec.rb
+
+		# in application_helper_spec.rb
+
+	# remove index.html
+	rm -f public/index.html
+
+	git status
+	git add .
+	git commit -m "Finish layout and routes"
+	git checkout filling-in-layout
+	git rm public/index.html
+	git status
+	git commit -am "Delete default Rails index"
+	git checkout master
+	git merge
+
+
+
+
 
 
 
