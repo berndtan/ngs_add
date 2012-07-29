@@ -54,3 +54,33 @@
 	# open routes.rb
 	# open home.html.erb
 	# open static_pages_controller.rb
+
+	git add .
+	git commit -m "Add a StaticPages controller"
+
+	rails generate integration_test static_pages
+	# in static_pages_spec.rb
+
+		require 'spec_helper'
+			describe "StaticPages" do
+				describe "Home page" do
+					it "should have the content 'NGS App'" do
+						visit '/static_pages/home'
+						page.should have_content('NGS App')
+					end
+				end
+			end
+
+	# in home.html.erb
+
+		<h1>NGS App</h1>
+		<p>This is the home page.</p>
+
+
+
+
+
+
+
+
+

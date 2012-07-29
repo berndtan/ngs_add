@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ngs_app_development
+  database: ngs_app2_development
   pool: 5
   username: root
   password: an2709be
