@@ -22,3 +22,24 @@
 # configure .gitignore
 
 	add .DS_Store
+
+# git
+
+	git add .
+	git commit -m "Initial commit"
+
+	# generate new repository on github
+	# paste in two lines of code that look like this:
+		# git remote add origin https://github.com/berndtan/ngs_add.git
+		# git push -u origin master
+
+# deploy
+
+	heroku create --stack cedar
+	git push heroku master
+	heroku open
+
+# change README.rdoc to README.md 
+
+	git mv README.rdoc README.md
+	sublime README.md
