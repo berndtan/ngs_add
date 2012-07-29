@@ -5,9 +5,13 @@ describe "StaticPages" do
 			visit '/static_pages/home'
 			page.should have_selector('h1', :text => 'NGS App')
 		end
-		it "should have the right title" do
+		it "should have the base title" do
 			visit '/static_pages/home'
-			page.should have_selector('title', :text => "NGS App | Home")
+			page.should have_selector('title', :text => "NGS App")
+		end
+		it "should not have page title" do
+			visit '/static_pages/home'
+			page.should_not have_selector('h1', :text => ' | Home')
 		end	
 	end
 	describe "Help page" do

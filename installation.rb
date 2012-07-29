@@ -40,14 +40,12 @@
 	heroku open
 
 # change README.rdoc to README.md 
-
 	git mv README.rdoc README.md
 	sublime README.md
 	git status
 	git commint -am "Improve the README"
 
 # Make static pages
-
 	git checkout -b static-pages
 	rails generate controller StaticPages home help --no-test-framework
 	git status
@@ -342,6 +340,102 @@
 
 	# test static_pages_spec.rb
 	bundle exec rspec spec/ #good
+
+	git status
+	git add .
+	git commit -m "Finish static pages"
+	git checkout master
+	git merge static-pages
+	git push
+	git push heroku
+	heroku open
+
+# make an ApplicationHelper
+	# application_helper.rb
+	module ApplicationHelper
+		# Return the full title on a per-page status.
+		def full_title(page_title)
+			base_title = 'NGS App'
+			if page_title.empty?
+				base_title
+			else
+					"#{base_title} | #{page_title}"
+			end
+		end
+	end
+
+	# in application.html.erb
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title><%= full_title(yield(:title)) %></title>
+			<%= stylesheet_link_tag    "application", :media => "all" %>
+			<%= javascript_include_tag "application" %>
+			<%= csrf_meta_tags %>
+		</head>
+		<body>
+			<%= yield %>
+		</body>
+	</html>
+
+	# in static_pages_spec.rb
+	require 'spec_helper'
+	describe "StaticPages" do
+		describe "Home page" do
+			it "should have the h1 'NGS App'" do
+				visit '/static_pages/home'
+				page.should have_selector('h1', :text => 'NGS App')
+			end
+			it "should have the base title" do
+				visit '/static_pages/home'
+				page.should have_selector('title', :text => "NGS App")
+			end
+			it "should not have page title" do
+				visit '/static_pages/home'
+				page.should_not have_selector('h1', :text => ' | Home')
+			end	
+		end
+		describe "Help page" do
+			it "should have the h1 'Help'" do
+				visit '/static_pages/help'
+				page.should have_selector('h1', :text => 'Help')
+			end
+			it "should have the right title" do
+				visit '/static_pages/help'
+				page.should have_selector('title', :text => "NGS App | Help")
+			end
+		end
+		describe "About page" do
+			it "should have the h1 'About Us'" do
+				visit '/static_pages/about'
+				page.should have_selector('h1', :text => 'About Us')
+			end
+			it "should have the right title" do
+				visit '/static_pages/about'
+				page.should have_selector('title', :text => "NGS App | About Us")
+			end
+		end
+			describe "Contact page" do
+			it "should have the h1 'Contact'" do
+				visit '/static_pages/contact'
+				page.should have_selector('h1', :text => 'Contact')
+			end
+			it "should have the right title" do
+				visit '/static_pages/contact'
+				page.should have_selector('title', :text => "NGS App | Contact")
+			end
+		end
+	end
+
+	#in home.html.erb
+	<h1>NGS App</h1>
+	<p>This is the home page.</p>
+
+	# test static_pages_spec.rb
+	bundle exec rspec spec/ #good
+
+# Filling in the layout
+
 
 
 
