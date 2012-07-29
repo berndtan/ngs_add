@@ -492,7 +492,7 @@
 	git checkout filling-in-layout
 	git rm public/index.html
 	git status
-	git commit -m "Delete default Rails index"
+	git commit -am "Delete default Rails index"
 
 
 
