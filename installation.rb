@@ -494,7 +494,9 @@
 	git status
 	git commit -am "Delete default Rails index"
 	git checkout master
-	git merge
+	git merge filling-in-layout
+	git push
+	git push heroku
 
 
 
