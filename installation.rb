@@ -489,6 +489,11 @@
 	git status
 	git add .
 	git commit -m "Finish layout and routes"
+	git checkout filling-in-layout
+	git rm public/index.html
+	git status
+	git commit -m "Delete default Rails index"
+
 
 
 
