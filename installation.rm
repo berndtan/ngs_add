@@ -43,3 +43,14 @@
 
 	git mv README.rdoc README.md
 	sublime README.md
+	git status
+	git commint -am "Improve the README"
+
+# Make static pages
+
+	git checkout -b static-pages
+	rails generate controller StaticPages home help --no-test-framework
+	git status
+	# open routes.rb
+	# open home.html.erb
+	# open static_pages_controller.rb
