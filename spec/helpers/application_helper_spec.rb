@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe ApplicationHelper do
+	before (:all) do
+	    ActiveRecord::Base.establish_connection(
+	      	:adapter => "mysql2",
+				:host => "localhost",
+				:database => "ngs_app_development",
+				:username => "berndtan",
+				:password => "an2709be" )
+	end
+
 	describe "full_title" do
 		it "should include the page title" do
 			full_title('foo').should =~ /foo/

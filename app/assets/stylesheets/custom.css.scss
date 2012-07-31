@@ -75,10 +75,21 @@ p {
 }
 
 
+/* hero unit */
+
+.background-image {
+	background-image:url(dreamstime_xs_18652784.png)
+}
+
+.hero-title {
+	color: #00f;
+}
+
+
 /* footer */
 
 footer {
-	margibn-top: 45px;
+	margin-top: 45px;
 	padding-top: 5px;
 	border-top: 1px solid $grayMediumLight;
 	color: $grayLight;
