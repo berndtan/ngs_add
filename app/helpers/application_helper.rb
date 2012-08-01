@@ -1,4 +1,5 @@
 module ApplicationHelper
+	
 	# Return the full title on a per-page status.
 	def full_title(page_title)
 		base_title = 'NGS App'
