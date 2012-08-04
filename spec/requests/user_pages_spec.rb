@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe "User pages" do
   
+	before (:all) do
+	    ActiveRecord::Base.establish_connection(
+	      	:adapter => "mysql2",
+			:host => "localhost",
+			:database => "ngs_app_development",
+			:username => "berndtan",
+			:password => "an2709be" )
+	end
+  
 	subject { page }
 
 	describe "signup page" do
@@ -54,6 +63,7 @@ describe "User pages" do
 				let(:user) { User.find_by_email("user@example.com") }
 				it { should have_selector('title', :text => user.name) }
 				it { should have_selector('div.alert.alert-success', :text => 'Welcome') }
+				it { should have_link('Sign out') }
 			end	
 		end
 	end
