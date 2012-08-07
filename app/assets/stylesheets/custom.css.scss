@@ -47,7 +47,8 @@ h1 {
 	font-size: 3em;
 	letter-spacing: -2px;
 	margin-bottom: 30px;
-	text-align: center;
+	text-align: right;
+	opacity: 0;
 }
 
 h2 {
@@ -83,14 +84,16 @@ p {
 
 /* hero unit */
 
-// .background-image {
-// 	background-image:url(dreamstime_xs_18652784.png);
-// }	
+.background-image {
+	background-image:url(design_8.jpg);
+}
 
-// .hero-title {
-// 	font-weight: bold;
-// 	color: purple;
-// }
+.hero-unit-lrg {
+	margin-left: 50px;
+	margin-right: 100px;
+	width: 680px;
+	height: 180px;
+}	
 
 
 /* footer */
