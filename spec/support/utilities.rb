@@ -1,7 +1,7 @@
 include ApplicationHelper
 
-RSpec::Matchers.define :have_error_message do |message|
-	match do |page|
+RSpec::Matchers.define :have_error_message do
+	match do
 		page.should have_selector('div.alert.alert-error', :text => 'Invalid')
 	end
 end
